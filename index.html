@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title></title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+
+  <body>
+    <div class="container">
+      <section class="screen left">     
+          <div class="location">-</div> 
+          <span class="main-error-msg"></span>
+          <div class="forecast-container">
+            <div class="temp-display">
+              <div class="temp">-</div>
+              <div class="switch-container">
+                <p>&#xb0;C</p>
+                  <label class="switch">
+                    <input type="checkbox" class="temp-switch">
+                    <span class="slider round"></span>
+                  </label>
+                <p>&#xb0;F</p>
+              </div>
+            </div>
+            <div class="description">-</div>
+          </div>
+          <div class="calendar">        
+          </div>
+      </section>
+      
+      <section class="screen right">
+        <div class="content">  
+          <div class="search-panel">
+              <h1>Quick View</h1>
+              <form>
+                <input type="text" placeholder="search" class="search-field">
+                <a class="search-btn"><i class="fas fa-search fa-3x"></i></a>
+              </form>
+              <span class="qv-error-msg"></span>
+          </div>
+          <div class="results-container">
+          </div>
+        </div>
+      </section>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
+  </body>
+</html>
