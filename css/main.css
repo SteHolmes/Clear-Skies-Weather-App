@@ -295,7 +295,11 @@ form {
   opacity: 1;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
+  
+  .container {
+    flex-direction: column;
+  }
   
   .container .left {
     width: 100%;
