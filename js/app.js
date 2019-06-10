@@ -116,7 +116,7 @@ $(document).ready(function() {
         const city = data.location.name;
         const cTemp = data.current.temp_c; 
         
-        if (panelCount <= 4) {
+        if (panelCount <= 3) {
           displayPanel();
           panelCount++;
          
