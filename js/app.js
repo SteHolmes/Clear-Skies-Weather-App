@@ -12,16 +12,16 @@ $(document).ready(function() {
     lat = position.coords.latitude; //assign variable according to structure of the api data 
     long = position.coords.longitude;
                                            
-  var geoUrl = "https://api.apixu.com/v1/forecast.json?key=ca5019676f2442f0b2a141733191903&q="+lat+","+long+"&days=5";
+  var geoUrl = "http://api.weatherstack.com/current?access_key=1ebf0499632bf7351df57fe10ad65840&query="+lat+","+long;
     
       $.getJSON(geoUrl, function(data) {
           
           console.log(data);
           const city = data.location.name;
           const country = data.location.country;
-          const weather = data.current.condition.text;
-          const icon = data.current.condition.icon;
-          const cTemp = data.current.temp_c; 
+          const weather = data.current.weather_descriptions[0];
+          const icon = data.current.weather_icons[0];
+          const cTemp = data.current.temperature; 
           const fTemp = (cTemp)*(9/5)+32;
           const tempSwitch = $(".temp-switch");
           
@@ -108,15 +108,15 @@ $(document).ready(function() {
     function showResults() {
      
       var locationSearch = $(".search-field").val();
-      var searchUrl = "https://api.apixu.com/v1/forecast.json?key=ca5019676f2442f0b2a141733191903&q=" + locationSearch;
+      var searchUrl = "http://api.weatherstack.com/current?access_key=1ebf0499632bf7351df57fe10ad65840&query=" + locationSearch;
           
       $.getJSON(searchUrl, function(data) {
         
         var time = data.location.localtime.slice(11);
         const city = data.location.name;
-        const cTemp = data.current.temp_c; 
+        const cTemp = data.current.temperature; 
         
-        if (panelCount <= 3) {
+        if (panelCount <= 4) {
           displayPanel();
           panelCount++;
          
