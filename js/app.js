@@ -11,8 +11,9 @@ $(document).ready(function() {
   navigator.geolocation.getCurrentPosition(function(position) {
     lat = position.coords.latitude; //assign variable according to structure of the api data 
     long = position.coords.longitude;
-                                           
-  var geoUrl = "http://api.weatherstack.com/current?access_key=1ebf0499632bf7351df57fe10ad65840&query="+lat+","+long;
+  
+// As this is an example project using a free weather forecast API, I have prefixed the url with an API which allows cross-origin requests //   
+  var geoUrl = "https://cors-anywhere.herokuapp.com/http://api.weatherstack.com/current?access_key=1ebf0499632bf7351df57fe10ad65840&query="+lat+","+long;
     
       $.getJSON(geoUrl, function(data) {
           
@@ -108,7 +109,7 @@ $(document).ready(function() {
     function showResults() {
      
       var locationSearch = $(".search-field").val();
-      var searchUrl = "http://api.weatherstack.com/current?access_key=1ebf0499632bf7351df57fe10ad65840&query=" + locationSearch;
+      var searchUrl = "https://cors-anywhere.herokuapp.com/https://community-open-weather-map.p.rapidapi.com/forecast?access_key=1ebf0499632bf7351df57fe10ad65840&query=" + locationSearch;
           
       $.getJSON(searchUrl, function(data) {
         
