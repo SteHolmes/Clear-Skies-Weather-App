@@ -5,14 +5,14 @@ $(document).ready(function() {
   var lat; 
   var long;
 
-// Get current user geo location from browser //
+  // Get current user geo location from browser //
   
   if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
     lat = position.coords.latitude; //assign variable according to structure of the api data 
     long = position.coords.longitude;
   
-// As this is an example project using a free weather forecast API, I have prefixed the url with an API which allows cross-origin requests //   
+  // As this is an example project using a free weather forecast API, I have prefixed the url with an API which allows cross-origin requests //   
   var geoUrl = "https://cors-anywhere.herokuapp.com/http://api.weatherstack.com/current?access_key=1ebf0499632bf7351df57fe10ad65840&query="+lat+","+long;
     
       $.getJSON(geoUrl, function(data) {
@@ -52,8 +52,8 @@ $(document).ready(function() {
               }
         }
         
-    // Display forecast calendar //
-        function displayCalendar() {
+    // Display forecast calendar - temporarily commented out until I can find a free weather API providing 5 day forecasts //
+        /* function displayCalendar() {
           const forecastDay = data.forecast.forecastday;
           const calendar = $(".calendar");
            
@@ -64,7 +64,7 @@ $(document).ready(function() {
                               "</p></div>");
           });
           calendar[0].firstElementChild.firstChild.innerText = "Today";
-        }
+        }*/
             
       }) // end getJSON
       .fail(function(data) {
@@ -103,9 +103,9 @@ $(document).ready(function() {
     qvErrorMsg.text("");
   })
 
-// --- FUNCTIONS --- //
+  // --- FUNCTIONS --- //
 
-// Display 'Quick View' search results //
+  // Display 'Quick View' search results //
     function showResults() {
      
       var locationSearch = $(".search-field").val();
@@ -125,7 +125,7 @@ $(document).ready(function() {
           qvErrorMsg.text("Quick View limit reached. Please remove a panel before adding a new one");
         }
         
-// Generate and display 'Quick View' panel //        
+  // Generate and display 'Quick View' panel //        
         function displayPanel() {
             results.prepend("<div class='quick-view'><div class='item'><h3 class='location-title'>" 
                             + city + "</h3><span class='qv-time'>" + time + "</span></div>" 
@@ -134,7 +134,7 @@ $(document).ready(function() {
             setBgColor($(".quick-view:first-child"));
         }
 
-// Set background colour of element based on forecasted temperature //         
+  // Set background colour of element based on forecasted temperature //         
         function setBgColor(el) {
           if (cTemp <= 10) {
               el.css("background-image", "linear-gradient(to right, #757F9A, #D7DDE8)"); 
