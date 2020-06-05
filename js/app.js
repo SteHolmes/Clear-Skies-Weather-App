@@ -109,7 +109,7 @@ $(document).ready(function() {
     function showResults() {
      
       var locationSearch = $(".search-field").val();
-      var searchUrl = "https://cors-anywhere.herokuapp.com/https://community-open-weather-map.p.rapidapi.com/forecast?access_key=1ebf0499632bf7351df57fe10ad65840&query=" + locationSearch;
+      var searchUrl = "https://cors-anywhere.herokuapp.com/http://api.weatherstack.com/current?access_key=1ebf0499632bf7351df57fe10ad65840&query=" + locationSearch;
           
       $.getJSON(searchUrl, function(data) {
         
